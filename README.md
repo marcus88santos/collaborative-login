@@ -1,7 +1,7 @@
 # Collaborative Login System
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)  
-Building a login system to collaborative apps
+Building a login system to collaborative apps using supabase db
 <br />
 <br />
 
