@@ -38,7 +38,7 @@ npm start
 
 | [![My Skills](https://skillicons.dev/icons?i=html)]() | [![My Skills](https://skillicons.dev/icons?i=css)]() | [![My Skills](https://skillicons.dev/icons?i=js)]() | [![My Skills](https://skillicons.dev/icons?i=react)]() | [![My Skills](https://skillicons.dev/icons?i=next)]() |
 | :---------------------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | ------------------------------------------------------ | ----------------------------------------------------- |
-|                         HTML                          |                         CSS                          |                     Javascript                      | React                                                  | Next                                                  |
+|                         HTML                          |                         CSS                          |                     Javascript                      |                     React                      |                     Next                      |
 
 <br />
 
