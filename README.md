@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Collaborative Login System
 
-## Getting Started
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)  
+Building a login system to collaborative apps
+<br />
+<br />
 
-First, run the development server:
+## :hammer: Funcionalidades do projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- simulate a collaborative login system
+
+<br />
+
+## 📁 Deploy do projeto
+
+Acesse o projeto clicando [aqui](https://marcus88santos.github.io/collaborative-login/)
+<br />
+<br />
+
+## 🛠️ Abrir e rodar o projeto
+
+```
+git clone https://github.com/marcus88santos/collaborative-login.git
+cd collaborative-login
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<br />
 
-## Learn More
+## ✔️ Técnicas e tecnologias utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+| [![My Skills](https://skillicons.dev/icons?i=html)]() | [![My Skills](https://skillicons.dev/icons?i=css)]() | [![My Skills](https://skillicons.dev/icons?i=js)]() | [![My Skills](https://skillicons.dev/icons?i=react)]() | [![My Skills](https://skillicons.dev/icons?i=next)]() |
+| :---------------------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | ------------------------------------------------------ | ----------------------------------------------------- |
+|                         HTML                          |                         CSS                          |                     Javascript                      | React                                                  | Next                                                  |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚶 Autor
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| [<img loading="lazy" src="https://github.com/marcus88santos.png?size=115" width=115><br><sub>marcUs fiLLipe santos</sub>](https://github.com/marcus88santos) |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------: |
