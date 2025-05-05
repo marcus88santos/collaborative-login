@@ -36,9 +36,9 @@ npm start
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
-| [![My Skills](https://skillicons.dev/icons?i=html)]() | [![My Skills](https://skillicons.dev/icons?i=css)]() | [![My Skills](https://skillicons.dev/icons?i=js)]() | [![My Skills](https://skillicons.dev/icons?i=react)]() | [![My Skills](https://skillicons.dev/icons?i=next)]() |
+| [![My Skills](https://skillicons.dev/icons?i=html)]() | [![My Skills](https://skillicons.dev/icons?i=tailwind)]() | [![My Skills](https://skillicons.dev/icons?i=js)]() | [![My Skills](https://skillicons.dev/icons?i=react)]() | [![My Skills](https://skillicons.dev/icons?i=next)]() |
 | :---------------------------------------------------: | :--------------------------------------------------: | :-------------------------------------------------: | :------------------------------------------------------: | :-----------------------------------------------------: |
-|                         HTML                          |                         CSS                          |                     Javascript                      |                     React                      |                     Next                      |
+|                         HTML                          |                         Tailwind CSS                          |                     Javascript                      |                     React                      |                     Next                      |
 
 <br />
 
