@@ -1,26 +1,36 @@
 'use client'
 
-import { SignUp, SignIn, LogOut, ReAuthenticate, ResetPassword, NewPassword } from "@/services/auth";
+import { SignUp, SignIn, LogOut, ResetPassword, NewPassword } from "@/services/auth";
 import { useState } from "react";
 
 export default function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const passwordValidation = (password) => {
+    if (password.length < 6) {
+      alert("A senha deve ter pelo menos 6 caracteres.");
+      return false;
+    }
+    return true;
+  }
+
   const handleSignIn = async (e) => {
     e.preventDefault();
+    if (!passwordValidation(password)) {
+      return;
+    }
     await SignIn(email, password);
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
+    if (!passwordValidation(password)) {
+      return;
+    }
     await SignUp(email, password);
     
   };
-  const handleReAuthenticate = async (e) => {
-    e.preventDefault();
-    await ReAuthenticate(email);
-  }
-  const handleResetPassword = async (e) => {
+    const handleResetPassword = async (e) => {
     e.preventDefault();
     await ResetPassword(email);
   }
@@ -57,13 +67,10 @@ export default function Form() {
           Esqueci minha senha
         </button>
         <button type="button" onClick={handleNewPassword} className="bg-yellow-800 cursor-pointer p-2 rounded">
-          Salvar senha
+          Redefinir senha
         </button>
         <button type="button" onClick={handleSignUp} className="bg-blue-400 cursor-pointer p-2 rounded">
           Cadastrar
-        </button>
-        <button type="button" onClick={handleReAuthenticate} className="bg-green-800 cursor-pointer p-2 rounded">
-          Autenticar novamente
         </button>
       </form>
       

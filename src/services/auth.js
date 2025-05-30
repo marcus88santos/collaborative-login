@@ -6,8 +6,11 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
+const tokenTime = 300; // 5 minutes
+const timeZone = -3 * 1000 * 60 * 60; // UTC-3
 
-const handleError = async (error) => {
+const handleError = async (error, email = '') => {
+  console.log("handleError:\n", error);
   switch (true) {
     case error.status == 429:
       let end = error.message.search(" seconds");
@@ -25,7 +28,8 @@ const handleError = async (error) => {
       await new Promise((resolve) => setTimeout(resolve, time * 1000));
       break;
     case error.message == "Email not confirmed":
-      alert("Erro: Email não cadastrado");
+      alert("Erro: Verificar email de confirmação de cadastro");
+      ReAuthenticate(email)
       break;
     case error.message == "Failed to fetch":
       alert("Erro: Não foi possível conectar ao servidor de autenticação");
@@ -51,23 +55,34 @@ export const SignUp = async (email, password) => {
     console.log("end");
     // break;
   } catch (error) {
-    console.log("teste");
-  }
-  // if (error) {
-  //   await handleError(error);
-  //   // continue;
-  // }
-  // }
-
-  if (user && user.identities.length) {
-    if (user.user_metadata.email_verified === false) {
-      console.log("confirmar email");
-    } else {
-      console.log("sign up success:", data);
+    console.log("erro");
+    if (error) {
+      await handleError(error, email);
+      return
     }
-  } else {
-    console.log("user already exists");
   }
+
+  // console.log(user);
+  if (user && user.identities.length === 0) {
+    alert("Erro: Usuário já cadastrado");
+    return
+  }
+
+  const lastConfirmation = new Date(user.confirmation_sent_at)
+  const dateNow = new Date()
+  
+  const intervalConfirmation = (dateNow + timeZone - lastConfirmation)/1000;
+
+  if (user && user.identities.length > 0 && intervalConfirmation < tokenTime) {
+    alert("Por favor, verifique sua caixa de entrada e clique no link de confirmação para concluir o cadastro.\nSe você não recebeu o email, aguarde " + (Math.round(tokenTime - intervalConfirmation) + 1) + " seg e tente novamente.");
+    return
+  }
+
+  alert("Um novo email de confirmação será enviado para " + email + " em instantes.\nPor favor, verifique sua caixa de entrada e clique no link de confirmação para concluir o cadastro.");
+  setInterval(() => {
+    ReAuthenticate(email);
+  }, 61 * 1000);
+
 };
 
 export const SignIn = async (email, password) => {
@@ -77,7 +92,7 @@ export const SignIn = async (email, password) => {
   });
 
   if (error) {
-    await handleError(error);
+    await handleError(error, email);
     return;
   }
 
@@ -101,7 +116,7 @@ export const ReAuthenticate = async (email) => {
     type: "signup",
   });
 
-  console.log("reauthentication success");
+  console.log("reauthentication sent");
 };
 
 export const ResetPassword = async (email) => {
