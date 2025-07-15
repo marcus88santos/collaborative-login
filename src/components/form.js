@@ -1,11 +1,13 @@
 'use client'
 
-import { SignUp, SignIn, LogOut, ResetPassword, NewPassword } from "@/services/auth";
+import { SignUp, SignIn, LogOut, ResetPassword, NewPassword } from "@/services/auth/auth";
 import { useState } from "react";
+import RequestProcessing from "./requests/request-processing";
 
 export default function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isHidden, setIsHidden] = useState(false);
 
   const passwordValidation = (password) => {
     if (password.length < 6) {
@@ -51,6 +53,11 @@ export default function Form() {
     setPassword(e.target.value);
   };
 
+  const openQueue = (e) => {
+    e.preventDefault();
+    setIsHidden(false);
+  }
+
   return (
     <>
       <h1 className="text-center text-2xl font-bold">Form</h1>
@@ -72,8 +79,11 @@ export default function Form() {
         <button type="button" onClick={handleSignUp} className="bg-blue-400 cursor-pointer p-2 rounded">
           Cadastrar
         </button>
+        <button type="button" onClick={openQueue} className="bg-gray-400 cursor-pointer p-2 rounded">
+          Processar fila
+        </button>
+      <RequestProcessing hidden={isHidden} user_id={'teste'} request_id={''}/>
       </form>
-      
     </>
   );
 }
